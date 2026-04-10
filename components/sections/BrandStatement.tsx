@@ -20,14 +20,14 @@ interface WordRevealProps {
 }
 
 function WordReveal({ word, index, total, scrollYProgress }: WordRevealProps) {
-  // Map words to reveal between 20%-70% of the scroll range
-  const rangeStart = 0.2;
-  const rangeEnd = 0.7;
+  // Map words to reveal between 15%-85% of the scroll range
+  const rangeStart = 0.15;
+  const rangeEnd = 0.85;
   const span = rangeEnd - rangeStart;
   const start = rangeStart + (index / total) * span;
   const end = rangeStart + ((index + 1) / total) * span;
 
-  const opacity = useTransform(scrollYProgress, [start, end], [0.1, 1]);
+  const opacity = useTransform(scrollYProgress, [start, end], [0.08, 1]);
   const y = useTransform(scrollYProgress, [start, end], [20, 0]);
   const blur = useTransform(scrollYProgress, [start, end], [4, 0]);
   const filter = useTransform(blur, (v) => `blur(${v}px)`);
@@ -54,7 +54,7 @@ export default function BrandStatement() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"],
+    offset: ["start 0.9", "end 0.1"],
   });
 
   const backgroundColor = useTransform(
@@ -67,7 +67,7 @@ export default function BrandStatement() {
     <motion.section
       ref={sectionRef}
       style={{ backgroundColor }}
-      className="min-h-screen flex items-center justify-center px-6 py-32"
+      className="min-h-[200vh] flex items-center justify-center px-6 py-32"
     >
       <p className="max-w-4xl text-3xl md:text-5xl lg:text-6xl font-display flex flex-wrap justify-center gap-x-3 gap-y-1">
         {WORDS.map((word, i) => (

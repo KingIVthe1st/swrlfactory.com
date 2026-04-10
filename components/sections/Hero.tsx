@@ -32,18 +32,37 @@ export default function Hero() {
   }));
 
   return (
-    <section ref={ref} className="relative h-screen overflow-hidden bg-swrl-black">
-      {/* Parallax Background Image */}
+    <section ref={ref} className="relative h-screen overflow-hidden bg-swrl-black vignette">
+      {/* Parallax Background Image with Ken Burns zoom */}
       <motion.div className="absolute inset-0" style={{ y }}>
-        <Image
-          src="/images/hero-bg.jpg"
-          alt="Gourmet SWRL cinnamon roll"
-          fill
-          className="object-cover scale-110"
-          priority
-          quality={90}
-        />
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            scale: [1.0, 1.15, 1.0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="Gourmet SWRL cinnamon roll"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+          />
+        </motion.div>
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-swrl-black/40 via-swrl-black/20 to-swrl-black/80" />
+        {/* Breathing light effect — simulates cinematic video feel */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-tr from-swrl-pink/10 via-transparent to-swrl-gold/5"
+          animate={{ opacity: [0, 0.4, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
       </motion.div>
 
       {/* Particles */}
