@@ -24,6 +24,13 @@ export default function Hero() {
     duration: `${6 + Math.random() * 6}s`,
   }));
 
+  const goldParticles = Array.from({ length: 10 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 12}s`,
+    duration: `${10 + Math.random() * 6}s`,
+  }));
+
   return (
     <section ref={ref} className="relative h-screen overflow-hidden bg-swrl-black">
       {/* Parallax Background Image */}
@@ -50,6 +57,18 @@ export default function Hero() {
               bottom: "-10px",
               width: p.size,
               height: p.size,
+              animationDelay: p.delay,
+              animationDuration: p.duration,
+            }}
+          />
+        ))}
+        {goldParticles.map((p) => (
+          <div
+            key={`gold-${p.id}`}
+            className="particle-gold"
+            style={{
+              left: p.left,
+              bottom: "-10px",
               animationDelay: p.delay,
               animationDuration: p.duration,
             }}

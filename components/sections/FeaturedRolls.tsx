@@ -28,13 +28,14 @@ export default function FeaturedRolls() {
 
     const tween = gsap.to(track, {
       x: -totalScroll,
-      ease: "none",
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: section,
         start: "top top",
         end: `+=${totalScroll}`,
         pin: true,
         scrub: 1,
+        snap: 1 / (FEATURED_ROLLS.length + 1),
         invalidateOnRefresh: true,
       },
     });
@@ -74,8 +75,8 @@ export default function FeaturedRolls() {
           <motion.div
             key={roll.name}
             className="flex-shrink-0 w-[75vw] md:w-[35vw] z-10"
-            initial={{ rotateY: 5 }}
-            whileInView={{ rotateY: 0 }}
+            initial={{ rotateY: 5, opacity: 0.5, scale: 0.9 }}
+            whileInView={{ rotateY: 0, opacity: 1, scale: 1 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >

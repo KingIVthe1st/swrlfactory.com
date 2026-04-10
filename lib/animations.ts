@@ -1,5 +1,13 @@
 import type { Variants } from "framer-motion";
 
+// Premium custom easings
+export const EASE = {
+  smooth: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+  snappy: [0.68, -0.55, 0.265, 1.55] as [number, number, number, number],
+  dramatic: [0.16, 1, 0.3, 1] as [number, number, number, number],
+  gentle: [0.4, 0, 0.2, 1] as [number, number, number, number],
+};
+
 // GSAP ScrollTrigger defaults
 export const SCROLL_TRIGGER_DEFAULTS = {
   start: "top 80%",

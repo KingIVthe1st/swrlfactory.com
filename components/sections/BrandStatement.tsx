@@ -24,13 +24,20 @@ function WordReveal({ word, index, total, scrollYProgress }: WordRevealProps) {
   const end = Math.min((index + 1) / total, 1);
 
   const opacity = useTransform(scrollYProgress, [start * 0.8, end * 0.8], [0.15, 1]);
-  const y = useTransform(scrollYProgress, [start * 0.8, end * 0.8], [10, 0]);
+  const y = useTransform(scrollYProgress, [start * 0.8, end * 0.8], [20, 0]);
+  const blur = useTransform(scrollYProgress, [start * 0.8, end * 0.8], [4, 0]);
+  const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
   const isHighlighted = HIGHLIGHTED.has(word.replace(/[^a-z]/gi, "").toLowerCase());
+  const scale = useTransform(
+    scrollYProgress,
+    [start * 0.8, end * 0.8],
+    isHighlighted ? [0.9, 1.05] : [1, 1]
+  );
 
   return (
     <motion.span
-      style={{ opacity, y }}
+      style={{ opacity, y, filter, scale }}
       className={`inline-block ${isHighlighted ? "text-swrl-pink" : "text-swrl-white"}`}
     >
       {word}

@@ -50,7 +50,7 @@ export default function RootLayout({
       lang="en"
       className={`${baloo2.variable} ${inter.variable} h-full`}
     >
-      <body className="bg-swrl-black text-swrl-white font-body antialiased min-h-full flex flex-col">
+      <body className="grain-overlay bg-swrl-black text-swrl-white font-body antialiased min-h-full flex flex-col">
         <ScrollProgress />
         <Navbar />
         <a

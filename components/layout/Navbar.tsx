@@ -33,7 +33,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-swrl-black/90 backdrop-blur-xl shadow-lg shadow-swrl-pink/5"
+          ? "bg-swrl-black/90 backdrop-blur-xl backdrop-saturate-150 shadow-lg shadow-swrl-pink/5"
           : "bg-transparent"
       }`}
     >
@@ -45,7 +45,7 @@ export default function Navbar() {
             alt="SWRL Cinnamon Roll Factory"
             width={120}
             height={50}
-            className="h-10 w-auto"
+            className={`h-10 w-auto transition-transform duration-300 ${scrolled ? "scale-90" : "scale-100"}`}
             priority
           />
         </Link>
