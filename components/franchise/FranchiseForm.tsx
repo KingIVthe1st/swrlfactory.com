@@ -11,7 +11,7 @@ import {
 } from "@/lib/validation";
 
 const inputClass =
-  "w-full bg-white rounded-xl border border-gray-200 px-4 py-3 font-body text-swrl-black placeholder:text-gray-400 focus:outline-none focus:border-swrl-pink focus:ring-2 focus:ring-swrl-pink/20 transition-colors duration-200";
+  "w-full bg-white rounded-xl border border-gray-200 px-4 py-3 font-body text-swrl-black placeholder:text-gray-400 focus:outline-none focus:border-swrl-pink focus:ring-2 focus:ring-swrl-pink/20 focus:border-l-4 focus:border-l-swrl-pink transition-all duration-200";
 
 const errorClass = "text-red-500 text-xs mt-1";
 
@@ -72,15 +72,20 @@ export default function FranchiseForm() {
   if (status === "success") {
     return (
       <div className="text-center py-16">
-        <motion.span
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className="inline-block text-6xl mb-6"
-          style={{ display: "inline-block" }}
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-swrl-pink/10 mb-6"
         >
-          🍥
-        </motion.span>
-        <p className="font-display text-2xl md:text-3xl text-swrl-black">
+          <svg className="w-10 h-10 text-swrl-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </motion.div>
+        <h3 className="font-display text-2xl md:text-3xl text-swrl-black mb-2">
+          Application Received
+        </h3>
+        <p className="font-body text-swrl-black/60 text-lg">
           We&apos;ll be in touch. Get ready to SWRL.
         </p>
       </div>

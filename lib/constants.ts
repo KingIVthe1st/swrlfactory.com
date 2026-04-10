@@ -19,6 +19,7 @@ export interface MenuItem {
   name: string;
   category: MenuCategory;
   price: number;
+  tagline: string;
   description: string;
   ingredients: string[];
   image: string;
@@ -29,6 +30,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Oreo Stuff'd",
     category: "Signature Stuffed",
     price: 7.99,
+    tagline: "Cookie chaos, perfected.",
     description:
       "Our most iconic creation — a warm, pillowy cinnamon roll loaded with crushed Oreo cookies, whipped cream filling, and finished with a glossy cookies-and-cream drizzle.",
     ingredients: ["Cinnamon dough", "Crushed Oreos", "Whipped cream filling", "Cookies & cream glaze"],
@@ -38,8 +40,9 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Cherry Cobbler Stuff'd",
     category: "Signature Stuffed",
     price: 7.99,
+    tagline: "Bold cherry. Zero restraint.",
     description:
-      "Southern comfort in every bite — sweet cherry compote tucked inside a buttery cinnamon roll, topped with streusel crumble and a warm vanilla glaze.",
+      "Recklessly generous cherry compote tucked inside a buttery cinnamon roll, topped with streusel crumble and a warm vanilla glaze. This one hits different.",
     ingredients: ["Cinnamon dough", "Cherry compote", "Streusel crumble", "Vanilla glaze"],
     image: "/images/cherry-cobbler.png",
   },
@@ -47,6 +50,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Strawberry Cheesecake Stuff'd",
     category: "Signature Stuffed",
     price: 8.49,
+    tagline: "Dessert royalty. Bow down.",
     description:
       "Dessert royalty. A soft cinnamon roll bursting with real cream cheese filling and fresh strawberry jam, crowned with a tangy cheesecake drizzle.",
     ingredients: ["Cinnamon dough", "Cream cheese filling", "Strawberry jam", "Cheesecake glaze"],
@@ -56,6 +60,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Cookies & Cream Dream",
     category: "Signature Stuffed",
     price: 7.99,
+    tagline: "Double stacked. Unreal.",
     description:
       "Double the cookies, double the dream. Layers of Oreo cream and chocolate cookie crumbs swirled through our signature dough, finished with dark chocolate ganache.",
     ingredients: ["Cinnamon dough", "Oreo cream", "Chocolate cookie crumbs", "Dark chocolate ganache"],
@@ -65,8 +70,9 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Cinnamon Sugar Classic",
     category: "Classic",
     price: 5.99,
+    tagline: "Where it all started.",
     description:
-      "The one that started it all. Our classic cinnamon roll made with hand-laminated dough, brown sugar, warm cinnamon, and a sweet original cream cheese icing.",
+      "The original. The standard. Hand-laminated dough, brown sugar, real cinnamon, cream cheese icing. No gimmicks — just a flawless roll that earned its name.",
     ingredients: ["Hand-laminated dough", "Brown sugar", "Ground cinnamon", "Cream cheese icing"],
     image: "/images/oreo-roll.png",
   },
@@ -74,6 +80,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Caramel Pecan Drizzle",
     category: "Classic",
     price: 6.99,
+    tagline: "Rich. Crunchy. Dangerous.",
     description:
       "Indulgent and nutty. Our classic roll blanketed in house-made salted caramel sauce and topped with toasted Georgia pecans for a satisfying crunch.",
     ingredients: ["Cinnamon dough", "Salted caramel sauce", "Toasted Georgia pecans", "Vanilla glaze"],
@@ -83,6 +90,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Pumpkin Spice Swirl",
     category: "Seasonal",
     price: 7.49,
+    tagline: "Fall, but make it extra.",
     description:
       "Fall in a roll. Pumpkin puree and warm spices swirled through our signature dough, glazed with maple cream cheese frosting and a dusting of nutmeg.",
     ingredients: ["Cinnamon dough", "Pumpkin puree", "Pumpkin spice blend", "Maple cream cheese frosting", "Nutmeg"],
@@ -92,6 +100,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "SWRL Iced Coffee",
     category: "Drinks",
     price: 4.99,
+    tagline: "Cold brew, warm vibes.",
     description:
       "Our house cold brew poured over ice and finished with sweet cream and a hint of cinnamon. The perfect partner to any roll on the menu.",
     ingredients: ["House cold brew", "Sweet cream", "Cinnamon", "Ice"],
@@ -101,8 +110,9 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Fresh Lemonade",
     category: "Drinks",
     price: 3.99,
+    tagline: "Squeezed. Never faked.",
     description:
-      "Hand-squeezed daily. Bright, tart, and just sweet enough — a refreshing contrast to the warmth of our signature cinnamon rolls.",
+      "Hand-squeezed daily. Sharp, honest, and perfectly balanced — the reset button between rolls.",
     ingredients: ["Fresh-squeezed lemons", "Cane sugar", "Filtered water", "Ice"],
     image: "/images/oreo-roll.png",
   },
@@ -186,7 +196,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Do you ship?",
     answer:
-      "Not yet — our rolls are best enjoyed fresh out of the oven. We're working on a shipping program so you can get SWRL delivered anywhere in the US. Stay tuned by joining our email list.",
+      "Not yet — but trust us, it's coming. We're building a shipping program that does our rolls justice. Follow @swrlfactory so you're first in line.",
   },
   {
     question: "Can I book catering?",
@@ -201,7 +211,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Are you hiring?",
     answer:
-      "We're always looking for passionate people who love food and great hospitality. Check the Contact page and mention you're interested in joining the team — we'd love to hear from you.",
+      "If you're fast, friendly, and can't fake enthusiasm — yeah, we want to talk. Hit us up on the Contact page and tell us why you belong at SWRL.",
   },
   {
     question: "Do you have gluten-free options?",
@@ -250,7 +260,7 @@ export const FRANCHISE_BENEFITS: FranchiseBenefit[] = [
   {
     title: "Supply Chain Access",
     description:
-      "Leverage our preferred vendor relationships for ingredients, packaging, and equipment — saving you time and lowering your cost of goods.",
+      "We've already vetted the suppliers, locked in the pricing, and built the relationships. You plug in and go — better ingredients, lower costs, zero guesswork.",
     icon: "🚚",
   },
   {
@@ -262,7 +272,7 @@ export const FRANCHISE_BENEFITS: FranchiseBenefit[] = [
   {
     title: "Territory Exclusivity",
     description:
-      "Approved franchisees receive a protected geographic territory, giving you the space to grow your market without competition from fellow SWRL owners.",
+      "Your market is yours. We carve out a territory so you can build your customer base without another SWRL owner next door. Room to breathe, room to grow.",
     icon: "📍",
   },
 ];

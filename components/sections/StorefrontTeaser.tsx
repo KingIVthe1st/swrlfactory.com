@@ -39,8 +39,8 @@ export default function StorefrontTeaser() {
 
         <div className="mt-16 text-center">
           <h2 className="text-5xl md:text-7xl font-display text-swrl-black mb-6">
-            Come Get Your{" "}
-            <span className="text-swrl-pink">SWRL</span>
+            This Is Where It{" "}
+            <span className="text-swrl-pink">Happens.</span>
           </h2>
           <p className="font-body text-swrl-black/60 text-lg mb-2">
             1234 Trade Street, Charlotte, NC 28202

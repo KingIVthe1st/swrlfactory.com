@@ -43,8 +43,8 @@ export default function FranchiseTeaser() {
 
         <ScrollReveal delay={0.2}>
           <p className="font-body text-swrl-white/70 text-lg md:text-xl max-w-2xl mb-16">
-            Turn your love for SWRL into a business. We've built a proven model
-            so you can open your doors with confidence — and a line out front.
+            Obsessed with SWRL? Own it. We&apos;ve built the model. The demand
+            exists. Now it&apos;s on you.
           </p>
         </ScrollReveal>
 

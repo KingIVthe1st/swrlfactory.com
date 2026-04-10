@@ -5,6 +5,9 @@ import { NAV_LINKS } from "@/lib/constants";
 export default function Footer() {
   return (
     <footer className="bg-swrl-black border-t border-swrl-white/10">
+      {/* Gradient separator */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-swrl-pink to-transparent" />
+
       {/* Franchise CTA Banner */}
       <div className="bg-gradient-to-r from-swrl-pink/20 via-swrl-pink/10 to-swrl-black border-b border-swrl-pink/20 py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">

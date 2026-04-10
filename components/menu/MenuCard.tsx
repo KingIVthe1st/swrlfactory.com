@@ -47,6 +47,11 @@ export default function MenuCard({ item, index }: MenuCardProps) {
         <h3 className="text-swrl-black font-display text-xl leading-tight">
           {item.name}
         </h3>
+        {item.tagline && (
+          <p className="text-swrl-pink font-body text-xs font-semibold uppercase tracking-wider mt-1">
+            {item.tagline}
+          </p>
+        )}
         <p className="text-swrl-black/60 font-body text-sm mt-2 leading-relaxed">
           {item.description}
         </p>

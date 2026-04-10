@@ -23,7 +23,7 @@ export default function ContactPage() {
               <span className="text-swrl-pink">Touch</span>
             </h1>
             <p className="font-body text-swrl-black/60 text-lg max-w-xl mx-auto">
-              Whether you have a question, want to book catering, or just want to say hello — we&apos;d love to hear from you.
+              Questions, catering, collabs, or just good vibes — drop us a line. We read everything.
             </p>
           </ScrollReveal>
         </div>

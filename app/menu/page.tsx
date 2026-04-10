@@ -107,7 +107,7 @@ export default function MenuPage() {
               Can&apos;t Decide?
             </h2>
             <p className="text-swrl-white/60 font-body text-lg max-w-md mx-auto">
-              Come in, smell the dough, and let the menu choose you. Our team is happy to help.
+              Indecisive? Good. Roll in, we&apos;ll sort you out.
             </p>
             <Button href="/locations" size="lg">
               Find a Location
