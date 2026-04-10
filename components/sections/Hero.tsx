@@ -43,7 +43,7 @@ export default function Hero() {
           priority
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-swrl-black/60 via-swrl-black/40 to-swrl-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-swrl-black/40 via-swrl-black/20 to-swrl-black/80" />
       </motion.div>
 
       {/* Particles */}
@@ -92,7 +92,7 @@ export default function Hero() {
             alt="SWRL Cinnamon Roll Factory"
             width={400}
             height={165}
-            className="w-64 md:w-80 lg:w-96 h-auto"
+            className="w-64 md:w-80 lg:w-96 h-auto rounded-2xl"
             priority
           />
         </motion.div>

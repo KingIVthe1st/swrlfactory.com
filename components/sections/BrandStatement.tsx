@@ -20,18 +20,22 @@ interface WordRevealProps {
 }
 
 function WordReveal({ word, index, total, scrollYProgress }: WordRevealProps) {
-  const start = index / total;
-  const end = Math.min((index + 1) / total, 1);
+  // Map words to reveal between 20%-70% of the scroll range
+  const rangeStart = 0.2;
+  const rangeEnd = 0.7;
+  const span = rangeEnd - rangeStart;
+  const start = rangeStart + (index / total) * span;
+  const end = rangeStart + ((index + 1) / total) * span;
 
-  const opacity = useTransform(scrollYProgress, [start * 0.8, end * 0.8], [0.15, 1]);
-  const y = useTransform(scrollYProgress, [start * 0.8, end * 0.8], [20, 0]);
-  const blur = useTransform(scrollYProgress, [start * 0.8, end * 0.8], [4, 0]);
+  const opacity = useTransform(scrollYProgress, [start, end], [0.1, 1]);
+  const y = useTransform(scrollYProgress, [start, end], [20, 0]);
+  const blur = useTransform(scrollYProgress, [start, end], [4, 0]);
   const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
   const isHighlighted = HIGHLIGHTED.has(word.replace(/[^a-z]/gi, "").toLowerCase());
   const scale = useTransform(
     scrollYProgress,
-    [start * 0.8, end * 0.8],
+    [start, end],
     isHighlighted ? [0.9, 1.05] : [1, 1]
   );
 
