@@ -54,7 +54,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "Dessert royalty. A soft cinnamon roll bursting with real cream cheese filling and fresh strawberry jam, crowned with a tangy cheesecake drizzle.",
     ingredients: ["Cinnamon dough", "Cream cheese filling", "Strawberry jam", "Cheesecake glaze"],
-    image: "/images/oreo-roll.png",
+    image: "/images/strawberry-roll.jpg",
   },
   {
     name: "Cookies & Cream Dream",
@@ -74,7 +74,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "The original. The standard. Hand-laminated dough, brown sugar, real cinnamon, cream cheese icing. No gimmicks — just a flawless roll that earned its name.",
     ingredients: ["Hand-laminated dough", "Brown sugar", "Ground cinnamon", "Cream cheese icing"],
-    image: "/images/oreo-roll.png",
+    image: "/images/classic-roll.jpg",
   },
   {
     name: "Caramel Pecan Drizzle",
@@ -84,7 +84,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "Indulgent and nutty. Our classic roll blanketed in house-made salted caramel sauce and topped with toasted Georgia pecans for a satisfying crunch.",
     ingredients: ["Cinnamon dough", "Salted caramel sauce", "Toasted Georgia pecans", "Vanilla glaze"],
-    image: "/images/oreo-roll.png",
+    image: "/images/caramel-pecan-roll.jpg",
   },
   {
     name: "Pumpkin Spice Swirl",
@@ -94,7 +94,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "Fall in a roll. Pumpkin puree and warm spices swirled through our signature dough, glazed with maple cream cheese frosting and a dusting of nutmeg.",
     ingredients: ["Cinnamon dough", "Pumpkin puree", "Pumpkin spice blend", "Maple cream cheese frosting", "Nutmeg"],
-    image: "/images/oreo-roll.png",
+    image: "/images/pumpkin-roll.jpg",
   },
   {
     name: "SWRL Iced Coffee",
@@ -104,7 +104,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "Our house cold brew poured over ice and finished with sweet cream and a hint of cinnamon. The perfect partner to any roll on the menu.",
     ingredients: ["House cold brew", "Sweet cream", "Cinnamon", "Ice"],
-    image: "/images/oreo-roll.png",
+    image: "/images/iced-coffee.jpg",
   },
   {
     name: "Fresh Lemonade",

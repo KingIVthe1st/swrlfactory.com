@@ -36,7 +36,7 @@ export default function Hero() {
       {/* Parallax Background Image */}
       <motion.div className="absolute inset-0" style={{ y }}>
         <Image
-          src="/images/oreo-roll.png"
+          src="/images/hero-bg.jpg"
           alt="Gourmet SWRL cinnamon roll"
           fill
           className="object-cover scale-110"

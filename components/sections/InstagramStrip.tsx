@@ -1,12 +1,14 @@
 import Image from "next/image";
 
 const images = [
+  { src: "/images/hero-bg.jpg", alt: "SWRL Cinnamon Roll" },
   { src: "/images/oreo-roll.png", alt: "Oreo Stuff'd Roll" },
+  { src: "/images/strawberry-roll.jpg", alt: "Strawberry Cheesecake Roll" },
   { src: "/images/cherry-cobbler.png", alt: "Cherry Cobbler Roll" },
-  { src: "/images/storefront.png", alt: "SWRL Factory Storefront" },
-  { src: "/images/oreo-roll.png", alt: "Oreo Stuff'd Roll" },
-  { src: "/images/cherry-cobbler.png", alt: "Cherry Cobbler Roll" },
-  { src: "/images/storefront.png", alt: "SWRL Factory Storefront" },
+  { src: "/images/caramel-pecan-roll.jpg", alt: "Caramel Pecan Drizzle Roll" },
+  { src: "/images/classic-roll.jpg", alt: "Classic Cinnamon Sugar Roll" },
+  { src: "/images/pumpkin-roll.jpg", alt: "Pumpkin Spice Swirl Roll" },
+  { src: "/images/process-glaze.jpg", alt: "Pouring Glaze on Rolls" },
 ];
 
 const doubled = [...images, ...images];

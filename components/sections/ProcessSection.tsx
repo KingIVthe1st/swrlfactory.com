@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,6 +15,7 @@ const steps = [
     description:
       "No shortcuts. No frozen dough. Just flour, butter, and a whole lot of patience.",
     gradient: "from-amber-900/80 to-swrl-black",
+    image: "/images/process-dough.jpg",
   },
   {
     number: "02",
@@ -22,6 +24,7 @@ const steps = [
     description:
       "Cherry cobbler. Oreo crumble. Strawberry cheesecake. We stuff them until they can't take any more.",
     gradient: "from-swrl-pink/60 to-swrl-black",
+    image: "/images/process-stuff.jpg",
   },
   {
     number: "03",
@@ -30,6 +33,7 @@ const steps = [
     description:
       "House-made cream cheese icing, caramel drizzle, white chocolate — every roll gets the royal treatment.",
     gradient: "from-swrl-gold/50 to-swrl-black",
+    image: "/images/process-glaze.jpg",
   },
 ];
 
@@ -113,9 +117,11 @@ export default function ProcessSection() {
       {steps.map((step) => (
         <section
           key={step.number}
-          className={`process-panel h-screen flex items-center justify-center bg-gradient-to-b ${step.gradient}`}
+          className={`process-panel relative h-screen flex items-center justify-center bg-gradient-to-b ${step.gradient}`}
         >
-          <div className="text-center px-6 max-w-4xl mx-auto">
+          <Image src={step.image} alt={step.title} fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
             <p className="text-swrl-pink font-body text-sm tracking-[0.3em] uppercase mb-6">
               Step {step.number}
             </p>
