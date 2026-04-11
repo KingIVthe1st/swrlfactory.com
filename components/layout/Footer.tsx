@@ -16,7 +16,7 @@ export default function Footer() {
               Own a SWRL™
             </h3>
             <p className="text-swrl-white/60 text-sm mt-1">
-              Join the fastest-growing cinnamon roll franchise in the Southeast.
+              The Charlotte store opened in 2026. The next one could be yours.
             </p>
           </div>
           <Link
@@ -36,9 +36,9 @@ export default function Footer() {
             <Image
               src="/images/swrl-logo.jpeg"
               alt="SWRL Cinnamon Roll Factory"
-              width={120}
-              height={50}
-              className="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity"
+              width={180}
+              height={75}
+              className="h-[72px] w-auto opacity-90 hover:opacity-100 transition-opacity"
             />
           </Link>
         </div>
