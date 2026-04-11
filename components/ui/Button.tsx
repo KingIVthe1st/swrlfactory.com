@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import Link from "next/link";
-import { motion, useSpring, useMotionValue } from "framer-motion";
+import { motion, useSpring } from "framer-motion";
 import type { Transition } from "framer-motion";
 
 const springTransition: Transition = { type: "spring", stiffness: 300, damping: 20 };

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import PageWrapper from "@/components/layout/PageWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 import DualCTA from "@/components/ui/DualCTA";
 import MenuFilter from "@/components/menu/MenuFilter";
 import MenuCard from "@/components/menu/MenuCard";

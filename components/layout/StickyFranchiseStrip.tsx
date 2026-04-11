@@ -10,15 +10,13 @@ const HIDE_TRIGGER_ID = "franchise-section";
 
 export default function StickyFranchiseStrip() {
   const [visible, setVisible] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
-
-  // Restore dismissed state from sessionStorage on mount
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(STORAGE_KEY) === "true") {
-      setDismissed(true);
-    }
-  }, []);
+  // Lazy state initializer reads sessionStorage once on first client render.
+  // On the server it returns false (no sessionStorage); the strip is hidden
+  // by default, so there's no visible hydration mismatch.
+  const [dismissed, setDismissed] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return sessionStorage.getItem(STORAGE_KEY) === "true";
+  });
 
   // Observe scroll-triggered show/hide sections
   useEffect(() => {

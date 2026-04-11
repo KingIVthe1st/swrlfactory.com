@@ -1,11 +1,48 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Typewriter from "@/components/animations/Typewriter";
 import EyebrowLabel from "@/components/ui/EyebrowLabel";
 import DualCTA from "@/components/ui/DualCTA";
+
+interface Particle {
+  id: number;
+  left: string;
+  delay: string;
+  size: string;
+  duration: string;
+}
+
+interface GoldParticle {
+  id: number;
+  left: string;
+  delay: string;
+  duration: string;
+}
+
+// Generated outside the component with lazy state initialization below —
+// ensures particle positions are stable across renders and React StrictMode
+// (the react-hooks/purity rule disallows Math.random during render).
+function buildParticles(): Particle[] {
+  return Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 8}s`,
+    size: `${3 + Math.random() * 4}px`,
+    duration: `${6 + Math.random() * 6}s`,
+  }));
+}
+
+function buildGoldParticles(): GoldParticle[] {
+  return Array.from({ length: 10 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 12}s`,
+    duration: `${10 + Math.random() * 6}s`,
+  }));
+}
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,20 +54,10 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    delay: `${Math.random() * 8}s`,
-    size: `${3 + Math.random() * 4}px`,
-    duration: `${6 + Math.random() * 6}s`,
-  }));
-
-  const goldParticles = Array.from({ length: 10 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    delay: `${Math.random() * 12}s`,
-    duration: `${10 + Math.random() * 6}s`,
-  }));
+  // Lazy state initializers run exactly once per mount — stable positions,
+  // no purity violations.
+  const [particles] = useState<Particle[]>(buildParticles);
+  const [goldParticles] = useState<GoldParticle[]>(buildGoldParticles);
 
   return (
     <section ref={ref} className="relative h-screen overflow-hidden bg-swrl-black vignette">

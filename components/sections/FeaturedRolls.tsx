@@ -72,7 +72,7 @@ export default function FeaturedRolls() {
         </div>
 
         {/* Roll cards */}
-        {FEATURED_ROLLS.map((roll, i) => (
+        {FEATURED_ROLLS.map((roll) => (
           <motion.div
             key={roll.name}
             className="flex-shrink-0 w-[75vw] md:w-[35vw] z-10"
