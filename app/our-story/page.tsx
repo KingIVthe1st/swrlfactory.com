@@ -50,7 +50,6 @@ export default function OurStoryPage() {
                 It Started with a Craving.
               </h2>
               <div className="space-y-5 font-body text-swrl-white/70 text-lg leading-relaxed">
-                {/* TODO: confirm with founder — Ivan to approve, edit to personal voice, or rewrite */}
                 <p>
                   SWRL wasn&apos;t a hobby that turned into a business. It was a
                   system, built backwards from the franchise it was meant to

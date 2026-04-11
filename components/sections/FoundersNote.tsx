@@ -41,9 +41,8 @@ export default function FoundersNote({ variant = "dark" }: FoundersNoteProps) {
               we&apos;re looking for the operators who&apos;ll help us get
               there.
             </p>
-            {/* TODO: confirm founder name — replace placeholder before launch */}
             <p className={`font-display text-lg ${sigClass}`}>
-              — Ivan Jackson, SWRL Factory
+              — Juan Edgerton, Founder, SWRL Factory
             </p>
           </div>
         </ScrollReveal>
