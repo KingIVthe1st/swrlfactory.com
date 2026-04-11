@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import { INVESTMENT_BUDGETS } from "@/lib/constants";
@@ -28,6 +29,15 @@ export default function FranchiseForm() {
   });
   const [errors, setErrors] = useState<ValidationError[]>([]);
   const [status, setStatus] = useState<FormStatus>("idle");
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const qEmail = searchParams?.get("email");
+    if (qEmail) {
+      setFormData((prev) => ({ ...prev, email: qEmail }));
+    }
+  }, [searchParams]);
 
   function getError(field: string): string | null {
     const err = errors.find((e) => e.field === field);
@@ -86,7 +96,7 @@ export default function FranchiseForm() {
           Application Received
         </h3>
         <p className="font-body text-swrl-black/60 text-lg">
-          We&apos;ll be in touch. Get ready to SWRL.
+          We&apos;ll be in touch within two business days. Welcome to the conversation.
         </p>
       </div>
     );
@@ -214,7 +224,7 @@ export default function FranchiseForm() {
 
       <div className="flex justify-center">
         <Button type="submit" size="lg" disabled={status === "submitting"}>
-          {status === "submitting" ? "Sending..." : "Let's Talk"}
+          {status === "submitting" ? "Sending..." : "Start the Conversation."}
         </Button>
       </div>
     </form>

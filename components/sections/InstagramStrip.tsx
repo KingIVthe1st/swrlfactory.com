@@ -17,6 +17,9 @@ export default function InstagramStrip() {
   return (
     <section className="py-16 bg-swrl-black overflow-hidden">
       <div className="text-center mb-10">
+        <p className="font-body text-swrl-white/50 text-xs md:text-sm uppercase tracking-widest mb-3">
+          Every post below is free marketing for every SWRL™ owner.
+        </p>
         <a
           href="https://instagram.com/swrlfactory"
           target="_blank"

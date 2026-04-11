@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import PageWrapper from "@/components/layout/PageWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
+import DualCTA from "@/components/ui/DualCTA";
 import MenuFilter from "@/components/menu/MenuFilter";
 import MenuCard from "@/components/menu/MenuCard";
 import { MENU_ITEMS, type MenuCategory } from "@/lib/constants";
@@ -55,8 +55,8 @@ export default function MenuPage() {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeading
-            title="The Lineup"
-            subtitle="Every roll, every sip — crafted to make you stay a little longer."
+            title="The Lineup."
+            subtitle="Four flavors that built a phenomenon. Eight more on the way."
             light
           />
         </div>
@@ -93,26 +93,33 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-swrl-black py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="space-y-6"
+      {/* Playbook strip */}
+      <section className="py-16 bg-swrl-black border-t border-swrl-white/5">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <p className="font-body text-swrl-white/70 text-base md:text-lg leading-relaxed mb-4">
+            Every recipe above is documented, protected, and trainable. Franchise
+            owners get the entire book.
+          </p>
+          <a
+            href="/franchise"
+            className="inline-block text-swrl-pink font-body font-semibold text-sm uppercase tracking-widest underline underline-offset-4 decoration-swrl-pink/40 hover:decoration-swrl-pink transition-colors"
           >
-            <h2 className="text-4xl md:text-5xl font-display text-swrl-white">
-              Can&apos;t Decide?
-            </h2>
-            <p className="text-swrl-white/60 font-body text-lg max-w-md mx-auto">
-              Indecisive? Good. Roll in, we&apos;ll sort you out.
-            </p>
-            <Button href="/locations" size="lg">
-              Find a Location
-            </Button>
-          </motion.div>
+            Own the playbook →
+          </a>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-20 md:py-28 bg-swrl-black">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-swrl-white mb-8">
+            Can&apos;t decide?
+          </h2>
+          <DualCTA
+            primary={{ label: "Visit Us in Charlotte →", href: "/locations" }}
+            secondary={{ label: "Bring SWRL to Your City →", href: "/franchise" }}
+            size="md"
+          />
         </div>
       </section>
     </PageWrapper>

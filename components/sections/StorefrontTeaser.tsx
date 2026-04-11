@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Button from "@/components/ui/Button";
+import DualCTA from "@/components/ui/DualCTA";
 
 export default function StorefrontTeaser() {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,8 +39,8 @@ export default function StorefrontTeaser() {
 
         <div className="mt-16 text-center">
           <h2 className="text-5xl md:text-7xl font-display text-swrl-black mb-6">
-            This Is Where It{" "}
-            <span className="text-swrl-pink">Happens.</span>
+            This is where it happens. Next,{" "}
+            <span className="text-swrl-pink">it happens at yours.</span>
           </h2>
           <p className="font-body text-swrl-black/60 text-lg mb-2">
             1234 Trade Street, Charlotte, NC 28202
@@ -48,9 +48,11 @@ export default function StorefrontTeaser() {
           <p className="font-body text-swrl-black/60 text-lg mb-10">
             Mon–Sat 7AM–9PM · Sun 8AM–6PM
           </p>
-          <Button href="/locations" size="lg">
-            Find Your SWRL →
-          </Button>
+          <DualCTA
+            primary={{ label: "Find Your SWRL →", href: "/locations" }}
+            secondary={{ label: "Build Your Own →", href: "/franchise" }}
+            size="md"
+          />
         </div>
       </div>
     </section>

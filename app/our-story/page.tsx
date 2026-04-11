@@ -50,24 +50,13 @@ export default function OurStoryPage() {
                 It Started with a Craving.
               </h2>
               <div className="space-y-5 font-body text-swrl-white/70 text-lg leading-relaxed">
+                {/* TODO: confirm with founder — Ivan to approve, edit to personal voice, or rewrite */}
                 <p>
-                  Cinnamon rolls have been the same for decades — a spiral of
-                  dough, a drizzle of icing, and a whole lot of missed potential.
-                  We tasted hundreds of them and kept asking the same question:
-                  why does the most beloved pastry in the world stop at the
-                  surface?
-                </p>
-                <p>
-                  That obsession turned into a kitchen experiment, then into a
-                  habit, then into something we couldn&apos;t keep to ourselves.
-                  We started stuffing rolls with cherry cobbler filling, Oreo
-                  cream, classic New York cheesecake — flavors people didn&apos;t
-                  know they needed inside a roll until they had one.
-                </p>
-                <p>
-                  SWRL wasn&apos;t built on a business plan. It was built on a
-                  craving that refused to go away — and the conviction that the
-                  world deserved something better than plain.
+                  SWRL wasn&apos;t a hobby that turned into a business. It was a
+                  system, built backwards from the franchise it was meant to
+                  become. Every recipe tested to be teachable. Every step
+                  engineered to be repeatable. A cinnamon roll designed, from
+                  the first batch, to scale.
                 </p>
               </div>
             </ScrollReveal>
@@ -102,9 +91,7 @@ export default function OurStoryPage() {
               <div className="text-center px-4">
                 <p className="text-swrl-pink font-display text-3xl mb-4">Stuff It</p>
                 <p className="font-body text-swrl-black/70 text-base leading-relaxed">
-                  Every roll starts with our signature dough — then we go deep.
-                  Real fillings, layered inside, not just on top. Cherry cobbler,
-                  Oreo cream, cheesecake. If it&apos;s craveable, we&apos;re stuffing it.
+                  We don&apos;t do ordinary. Every roll is engineered to be unforgettable.
                 </p>
               </div>
             </StaggerItem>
@@ -113,9 +100,7 @@ export default function OurStoryPage() {
               <div className="text-center px-4">
                 <p className="text-swrl-pink font-display text-3xl mb-4">Perfect It</p>
                 <p className="font-body text-swrl-black/70 text-base leading-relaxed">
-                  Good enough isn&apos;t in our vocabulary. Every batch is made fresh
-                  daily, every recipe tested until the texture, pull, and taste
-                  hit exactly where they need to. No shortcuts, no compromises.
+                  Every recipe is protected, documented, and trainable in a week.
                 </p>
               </div>
             </StaggerItem>
@@ -124,10 +109,7 @@ export default function OurStoryPage() {
               <div className="text-center px-4">
                 <p className="text-swrl-pink font-display text-3xl mb-4">Share It</p>
                 <p className="font-body text-swrl-black/70 text-base leading-relaxed">
-                  A roll this good deserves a bigger stage. We built SWRL from
-                  day one to be something others could bring to their communities —
-                  a franchise-ready model so every neighborhood can have its own
-                  SWRL.
+                  Built to scale. Built to franchise. Built to spread.
                 </p>
               </div>
             </StaggerItem>
@@ -144,7 +126,7 @@ export default function OurStoryPage() {
             </h2>
           </ScrollReveal>
 
-          <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {[
               {
                 title: "Made from scratch daily",
@@ -161,6 +143,10 @@ export default function OurStoryPage() {
               {
                 title: "Franchise-ready operations",
                 body: "Every process, every product, every system is built to scale. SWRL is ready for city two, three, and beyond whenever you are.",
+              },
+              {
+                title: "Franchise-ready from day one",
+                body: "Not retrofitted — engineered to be franchisable from the first batch.",
               },
             ].map(({ title, body }) => (
               <StaggerItem key={title}>
@@ -181,8 +167,8 @@ export default function OurStoryPage() {
             <blockquote className="font-display text-4xl md:text-6xl text-swrl-white leading-tight mb-14">
               &ldquo;We didn&apos;t start a bakery.
               <br />
-              We started a{" "}
-              <span className="text-swrl-pink">movement.</span>&rdquo;
+              We built the next{" "}
+              <span className="text-swrl-pink">franchise phenomenon.</span>&rdquo;
             </blockquote>
           </ScrollReveal>
 

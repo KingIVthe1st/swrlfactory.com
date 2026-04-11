@@ -48,6 +48,7 @@ export default function FeaturedRolls() {
 
   return (
     <section
+      id="featured-rolls"
       ref={sectionRef}
       className="overflow-hidden bg-swrl-black relative"
     >
@@ -63,15 +64,15 @@ export default function FeaturedRolls() {
         <div className="flex-shrink-0 w-[80vw] md:w-[40vw] z-10">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display text-swrl-white leading-tight">
             The{" "}
-            <span className="text-swrl-pink">Lineup</span>
+            <span className="text-swrl-pink">Lineup</span>.
           </h2>
           <p className="mt-4 text-swrl-white/60 font-body text-lg">
-            Four reasons you'll never look at cinnamon rolls the same way again.
+            Four flavors that built a phenomenon. Eight more on the way.
           </p>
         </div>
 
         {/* Roll cards */}
-        {FEATURED_ROLLS.map((roll, i) => (
+        {FEATURED_ROLLS.map((roll) => (
           <motion.div
             key={roll.name}
             className="flex-shrink-0 w-[75vw] md:w-[35vw] z-10"
@@ -115,17 +116,25 @@ export default function FeaturedRolls() {
 
         {/* CTA card */}
         <div className="flex-shrink-0 w-[60vw] md:w-[25vw] flex items-center justify-center z-10">
-          <Link
-            href="/menu"
-            className="group inline-flex flex-col items-center gap-4 text-center"
-          >
-            <span className="text-swrl-white font-display text-3xl md:text-4xl group-hover:text-swrl-pink transition-colors duration-300">
-              See Full Menu
-            </span>
-            <span className="text-swrl-pink font-display text-5xl group-hover:translate-x-2 transition-transform duration-300">
-              →
-            </span>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+            <Link
+              href="/menu"
+              className="group inline-flex flex-col items-center gap-4 text-center"
+            >
+              <span className="text-swrl-white font-display text-3xl md:text-4xl group-hover:text-swrl-pink transition-colors duration-300">
+                See Full Menu
+              </span>
+              <span className="text-swrl-pink font-display text-5xl group-hover:translate-x-2 transition-transform duration-300">
+                →
+              </span>
+            </Link>
+            <a
+              href="#franchise-section"
+              className="text-swrl-white/60 hover:text-swrl-pink transition-colors text-sm font-body underline underline-offset-4 decoration-swrl-pink/40 hover:decoration-swrl-pink"
+            >
+              What this looks like as a business →
+            </a>
+          </div>
         </div>
       </div>
     </section>

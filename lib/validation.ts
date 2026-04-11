@@ -40,6 +40,7 @@ export interface ContactFormData {
   email: string;
   subject: string;
   message: string;
+  targetCity?: string;
 }
 
 export function validateContactForm(data: ContactFormData): ValidationError[] {

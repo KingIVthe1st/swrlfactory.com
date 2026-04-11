@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PageWrapper from "@/components/layout/PageWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
@@ -36,7 +37,7 @@ export default function LocationsPage() {
               <span className="text-swrl-pink">SWRL</span>
             </h1>
             <p className="font-body text-swrl-black/60 text-lg max-w-xl mx-auto">
-              From our flagship Charlotte location to cities across the South — there&apos;s a SWRL near you.
+              One store open. More on the way. And the one you build.
             </p>
           </ScrollReveal>
         </div>
@@ -98,42 +99,43 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* ── 3. Coming Soon ── */}
+      {/* ── 3. Unclaimed Territories ── */}
       <section className="py-24 bg-swrl-black">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <ScrollReveal className="mb-12 text-center">
             <h2 className="text-3xl md:text-4xl font-display text-swrl-white">
-              Coming Soon
+              Unclaimed Territories
             </h2>
             <p className="font-body text-swrl-cream/60 mt-3 text-lg">
-              We&apos;re rolling out to new cities. Stay close.
+              These markets are open. Someone will own them.
             </p>
           </ScrollReveal>
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {comingSoonLocations.map((location) => (
               <StaggerItem key={location.name}>
-                <div className="group relative rounded-2xl overflow-hidden aspect-square">
-                  {/* Blurred image */}
-                  <Image
-                    src={location.image}
-                    alt={location.city}
-                    fill
-                    className="object-cover blur-sm group-hover:blur-none transition-all duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-swrl-black/60 group-hover:bg-swrl-black/40 transition-colors duration-500" />
-                  {/* Text */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                    <p className="font-display text-2xl md:text-3xl text-swrl-white mb-2">
-                      {location.city}
-                    </p>
-                    <span className="font-body text-swrl-pink text-sm font-semibold uppercase tracking-widest">
-                      Coming Soon
-                    </span>
+                <Link
+                  href={`/franchise?territory=${encodeURIComponent(location.city)}`}
+                  className="block rounded-2xl border border-swrl-pink/20 bg-swrl-white/[0.02] p-8 hover:border-swrl-pink/50 transition-colors"
+                >
+                  {/* Blurred image backdrop */}
+                  <div className="relative rounded-xl overflow-hidden aspect-video mb-6">
+                    <Image
+                      src={location.image}
+                      alt={location.city}
+                      fill
+                      className="object-cover blur-sm"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-swrl-black/60" />
                   </div>
-                </div>
+                  <p className="text-xs font-body uppercase tracking-[0.2em] text-swrl-pink mb-2">
+                    Owner: Unclaimed
+                  </p>
+                  <h3 className="font-display text-2xl md:text-3xl text-swrl-white">
+                    {location.city}, {location.state}
+                  </h3>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerChildren>
@@ -141,19 +143,14 @@ export default function LocationsPage() {
       </section>
 
       {/* ── 4. Franchise CTA ── */}
-      <section className="py-16 bg-swrl-black border-t border-swrl-pink/10">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <ScrollReveal>
-            <p className="font-body text-swrl-cream/60 text-lg mb-3">
-              Don&apos;t see your city?
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl text-swrl-white mb-8">
-              Bring SWRL to your market.
-            </h2>
-            <Button href="/franchise" size="lg" variant="primary">
-              Learn About Franchising
-            </Button>
-          </ScrollReveal>
+      <section className="py-20 bg-swrl-black border-t border-swrl-white/5">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <p className="font-body text-swrl-white/70 text-lg mb-6">
+            Don&apos;t see your city? It&apos;s still on the map.
+          </p>
+          <Button href="/franchise" size="lg">
+            Claim a Territory →
+          </Button>
         </div>
       </section>
     </PageWrapper>

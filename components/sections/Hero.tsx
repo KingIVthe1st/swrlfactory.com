@@ -1,10 +1,48 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Typewriter from "@/components/animations/Typewriter";
+import EyebrowLabel from "@/components/ui/EyebrowLabel";
+import DualCTA from "@/components/ui/DualCTA";
+
+interface Particle {
+  id: number;
+  left: string;
+  delay: string;
+  size: string;
+  duration: string;
+}
+
+interface GoldParticle {
+  id: number;
+  left: string;
+  delay: string;
+  duration: string;
+}
+
+// Generated outside the component with lazy state initialization below —
+// ensures particle positions are stable across renders and React StrictMode
+// (the react-hooks/purity rule disallows Math.random during render).
+function buildParticles(): Particle[] {
+  return Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 8}s`,
+    size: `${3 + Math.random() * 4}px`,
+    duration: `${6 + Math.random() * 6}s`,
+  }));
+}
+
+function buildGoldParticles(): GoldParticle[] {
+  return Array.from({ length: 10 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 12}s`,
+    duration: `${10 + Math.random() * 6}s`,
+  }));
+}
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,20 +54,10 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    delay: `${Math.random() * 8}s`,
-    size: `${3 + Math.random() * 4}px`,
-    duration: `${6 + Math.random() * 6}s`,
-  }));
-
-  const goldParticles = Array.from({ length: 10 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    delay: `${Math.random() * 12}s`,
-    duration: `${10 + Math.random() * 6}s`,
-  }));
+  // Lazy state initializers run exactly once per mount — stable positions,
+  // no purity violations.
+  const [particles] = useState<Particle[]>(buildParticles);
+  const [goldParticles] = useState<GoldParticle[]>(buildGoldParticles);
 
   return (
     <section ref={ref} className="relative h-screen overflow-hidden bg-swrl-black vignette">
@@ -109,9 +137,9 @@ export default function Hero() {
           <Image
             src="/images/swrl-logo.jpeg"
             alt="SWRL Cinnamon Roll Factory"
-            width={400}
-            height={165}
-            className="w-64 md:w-80 lg:w-96 h-auto rounded-2xl"
+            width={600}
+            height={248}
+            className="w-96 md:w-[480px] lg:w-[576px] h-auto rounded-2xl"
             priority
           />
         </motion.div>
@@ -121,19 +149,21 @@ export default function Hero() {
           <Typewriter text="Life's Too Short for Boring Rolls." delay={1.5} speed={60} />
         </div>
 
-        {/* Franchise Seed */}
+        {/* Eyebrow + Dual CTA */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 4, duration: 1.5 }}
-          className="mt-6"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 4, duration: 1.2 }}
+          className="mt-8 flex flex-col items-center gap-5"
         >
-          <Link
-            href="/franchise"
-            className="text-swrl-pink/70 text-sm font-body tracking-widest uppercase hover:text-swrl-pink transition-colors duration-300"
-          >
-            Obsessed? Own One.
-          </Link>
+          <EyebrowLabel className="text-swrl-pink/80">
+            Life&apos;s too short for boring rolls. And boring businesses.
+          </EyebrowLabel>
+          <DualCTA
+            primary={{ label: "Order Now", href: "/menu" }}
+            secondary={{ label: "Own a SWRL™ →", href: "/franchise" }}
+            size="md"
+          />
         </motion.div>
       </motion.div>
 

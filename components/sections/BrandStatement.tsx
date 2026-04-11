@@ -6,11 +6,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const WORDS = [
   "We", "don't", "make", "cinnamon", "rolls.",
   "We", "stuff", "them.",
-  "We", "glaze", "them.",
+  "We", "ruin", "them.",
   "We", "ruin", "every", "other", "cinnamon", "roll", "you'll", "ever", "eat.",
 ];
 
-const HIGHLIGHTED = new Set(["stuff", "glaze", "ruin"]);
+const HIGHLIGHTED = new Set(["stuff", "ruin"]);
 
 interface WordRevealProps {
   word: string;

@@ -209,9 +209,9 @@ export const FAQS: FAQ[] = [
       "We're actively growing our franchise family! Head to our Franchise page to learn about investment levels, territory availability, and the support we provide. Fill out the inquiry form and our development team will be in touch.",
   },
   {
-    question: "Are you hiring?",
+    question: "How exclusive is a territory?",
     answer:
-      "If you're fast, friendly, and can't fake enthusiasm — yeah, we want to talk. Hit us up on the Contact page and tell us why you belong at SWRL.",
+      "One operator per market, with a protected radius defined in the FDD. We limit how many territories we open per year because onboarding the right operator is more important than speed.",
   },
   {
     question: "Do you have gluten-free options?",
@@ -227,9 +227,9 @@ export interface FranchiseStat {
 }
 
 export const FRANCHISE_STATS: FranchiseStat[] = [
-  { label: "Estimated Investment", value: "$150K – $300K" },
-  { label: "Signature Flavors", value: "12+" },
-  { label: "Target ROI Timeline", value: "18 months" },
+  { label: "Estimated initial investment", value: "$150K – $300K" },
+  { label: "Signature recipes in the playbook", value: "12+" },
+  { label: "Target operator payback period", value: "18 months" },
 ];
 
 export interface FranchiseBenefit {
@@ -240,39 +240,39 @@ export interface FranchiseBenefit {
 
 export const FRANCHISE_BENEFITS: FranchiseBenefit[] = [
   {
-    title: "Proven Recipes & Training",
+    title: "Proprietary Recipes",
     description:
-      "Master our signature dough and stuffing techniques with hands-on training at our Charlotte flagship before you open your doors.",
+      "Every roll on the menu is a protected, documented, trainable recipe.",
     icon: "📋",
   },
   {
-    title: "Store Design & Buildout",
+    title: "Store Design & Build-Out",
     description:
-      "Our in-house design team provides full store layout plans, fixture specs, and brand-approved materials so your space looks and feels like SWRL.",
+      "From blueprint to ribbon-cutting — we run the playbook.",
     icon: "🏗️",
   },
   {
     title: "Marketing Playbook",
     description:
-      "Launch with confidence using our turnkey marketing system — social templates, grand opening strategy, and ongoing campaign support.",
+      "Social, paid, local — the campaigns that built Charlotte, handed to you.",
     icon: "📣",
   },
   {
-    title: "Supply Chain Access",
+    title: "Supply Chain",
     description:
-      "We've already vetted the suppliers, locked in the pricing, and built the relationships. You plug in and go — better ingredients, lower costs, zero guesswork.",
+      "Vetted suppliers, negotiated rates, consistent product.",
     icon: "🚚",
   },
   {
-    title: "Operational Support",
+    title: "Operations Support",
     description:
-      "From hiring guides to POS setup, our franchise operations team is with you from day one through every milestone.",
+      "Training, field visits, and a direct line to the founder.",
     icon: "🛠️",
   },
   {
     title: "Territory Exclusivity",
     description:
-      "Your market is yours. We carve out a territory so you can build your customer base without another SWRL owner next door. Room to breathe, room to grow.",
+      "One operator per market. Protected radius.",
     icon: "📍",
   },
 ];

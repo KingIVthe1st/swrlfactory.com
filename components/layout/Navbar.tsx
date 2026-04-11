@@ -37,15 +37,15 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
             src="/images/swrl-logo.jpeg"
             alt="SWRL Cinnamon Roll Factory"
-            width={120}
-            height={50}
-            className={`h-10 w-auto transition-transform duration-300 ${scrolled ? "scale-90" : "scale-100"}`}
+            width={180}
+            height={75}
+            className={`h-[60px] w-auto transition-transform duration-300 ${scrolled ? "scale-90" : "scale-100"}`}
             priority
           />
         </Link>
@@ -58,6 +58,9 @@ export default function Navbar() {
                 href={link.href}
                 className="relative text-swrl-white/80 hover:text-swrl-white text-sm font-medium transition-colors group"
               >
+                {link.label === "Franchise" && (
+                  <span className="absolute -top-1 -right-3 w-1.5 h-1.5 rounded-full bg-swrl-pink animate-pulse" />
+                )}
                 {link.label}
                 <span className="absolute -bottom-0.5 left-0 h-px bg-swrl-pink w-0 group-hover:w-full transition-all duration-300" />
               </Link>
