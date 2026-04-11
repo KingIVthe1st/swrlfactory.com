@@ -209,9 +209,9 @@ export const FAQS: FAQ[] = [
       "We're actively growing our franchise family! Head to our Franchise page to learn about investment levels, territory availability, and the support we provide. Fill out the inquiry form and our development team will be in touch.",
   },
   {
-    question: "Are you hiring?",
+    question: "How exclusive is a territory?",
     answer:
-      "If you're fast, friendly, and can't fake enthusiasm — yeah, we want to talk. Hit us up on the Contact page and tell us why you belong at SWRL.",
+      "One operator per market, with a protected radius defined in the FDD. We limit how many territories we open per year because onboarding the right operator is more important than speed.",
   },
   {
     question: "Do you have gluten-free options?",

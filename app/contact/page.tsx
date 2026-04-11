@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageWrapper from "@/components/layout/PageWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import ContactForm from "@/components/contact/ContactForm";
@@ -110,6 +111,22 @@ export default function ContactPage() {
                   >
                     Get Directions
                   </Button>
+                </div>
+
+                {/* Franchise Block */}
+                <div className="mt-10 pt-10 border-t border-swrl-black/10">
+                  <h3 className="font-display text-2xl text-swrl-black mb-3">
+                    For Franchise Inquiries
+                  </h3>
+                  <p className="font-body text-swrl-black/60 text-sm mb-4 leading-relaxed">
+                    We answer every serious inquiry within two business days.
+                  </p>
+                  <Link
+                    href="/franchise"
+                    className="inline-block text-swrl-pink font-body font-semibold text-sm uppercase tracking-widest underline underline-offset-4 decoration-swrl-pink/40 hover:decoration-swrl-pink transition-colors"
+                  >
+                    Start the Conversation →
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>

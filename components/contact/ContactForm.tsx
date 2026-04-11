@@ -9,14 +9,6 @@ import {
   type ValidationError,
 } from "@/lib/validation";
 
-const SUBJECTS = [
-  "General Inquiry",
-  "Catering Request",
-  "Franchise Question",
-  "Feedback",
-  "Press / Media",
-  "Other",
-];
 
 const inputClass =
   "w-full bg-white rounded-xl border border-gray-200 px-4 py-3 font-body text-swrl-black placeholder:text-gray-400 focus:outline-none focus:border-swrl-pink focus:ring-2 focus:ring-swrl-pink/20 transition-colors duration-200";
@@ -31,6 +23,7 @@ export default function ContactForm() {
     email: "",
     subject: "",
     message: "",
+    targetCity: "",
   });
   const [errors, setErrors] = useState<ValidationError[]>([]);
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -61,10 +54,28 @@ export default function ContactForm() {
 
     setStatus("submitting");
     try {
-      const res = await fetch("/api/contact", {
+      const endpoint =
+        formData.subject === "franchise" ? "/api/franchise" : "/api/contact";
+      const payload =
+        formData.subject === "franchise"
+          ? {
+              name: formData.name,
+              email: formData.email,
+              targetCity: formData.targetCity,
+              message: formData.message,
+              source: "contact-page",
+            }
+          : {
+              name: formData.name,
+              email: formData.email,
+              subject: formData.subject,
+              message: formData.message,
+            };
+
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) throw new Error("Server error");
@@ -145,16 +156,38 @@ export default function ContactForm() {
           className={inputClass}
         >
           <option value="">Select a subject...</option>
-          {SUBJECTS.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
+          <option value="franchise">I&apos;m interested in owning a SWRL™</option>
+          <option value="general">General question</option>
+          <option value="catering">Catering inquiry</option>
+          <option value="press">Press / media</option>
+          <option value="other">Other</option>
         </select>
         {getError("subject") && (
           <p className={errorClass}>{getError("subject")}</p>
         )}
       </div>
+
+      {/* Target City (franchise only) */}
+      {formData.subject === "franchise" && (
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="targetCity"
+            className="font-body text-sm text-swrl-black/70"
+          >
+            Target City / State
+          </label>
+          <input
+            id="targetCity"
+            name="targetCity"
+            type="text"
+            value={formData.targetCity}
+            onChange={handleChange}
+            placeholder="Atlanta, GA"
+            className={inputClass}
+            required
+          />
+        </div>
+      )}
 
       {/* Message */}
       <div>
