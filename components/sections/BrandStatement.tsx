@@ -20,9 +20,13 @@ interface WordRevealProps {
 }
 
 function WordReveal({ word, index, total, scrollYProgress }: WordRevealProps) {
-  // Map words to reveal between 15%-85% of the scroll range
+  // Reveal words between 15% and 60% of the section's scroll range.
+  // Previously the range was 15–85% and the last 6 words never reached full
+  // opacity because users scrolled past before progress hit 0.85. Compressing
+  // the range into the first ~60% leaves a generous "appreciation window"
+  // where the fully-lit statement holds while the background transitions.
   const rangeStart = 0.15;
-  const rangeEnd = 0.85;
+  const rangeEnd = 0.6;
   const span = rangeEnd - rangeStart;
   const start = rangeStart + (index / total) * span;
   const end = rangeStart + ((index + 1) / total) * span;
@@ -57,9 +61,11 @@ export default function BrandStatement() {
     offset: ["start 0.9", "end 0.1"],
   });
 
+  // Background shifts to warm cream after the statement is fully revealed,
+  // so the transition feels earned rather than racing the words.
   const backgroundColor = useTransform(
     scrollYProgress,
-    [0, 0.5, 1],
+    [0, 0.65, 1],
     ["#1A1A1A", "#2a2220", "#FFF5EB"]
   );
 
@@ -67,9 +73,9 @@ export default function BrandStatement() {
     <motion.section
       ref={sectionRef}
       style={{ backgroundColor }}
-      className="min-h-[200vh] flex items-center justify-center px-6 py-32"
+      className="relative min-h-[160vh] flex items-center justify-center px-6 py-24 md:py-32"
     >
-      <p className="max-w-4xl text-3xl md:text-5xl lg:text-6xl font-display flex flex-wrap justify-center gap-x-3 gap-y-1">
+      <p className="max-w-4xl text-3xl md:text-5xl lg:text-6xl font-display flex flex-wrap justify-center gap-x-3 gap-y-1 leading-tight">
         {WORDS.map((word, i) => (
           <WordReveal
             key={`${word}-${i}`}

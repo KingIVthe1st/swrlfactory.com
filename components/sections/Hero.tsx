@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Typewriter from "@/components/animations/Typewriter";
@@ -22,9 +22,9 @@ interface GoldParticle {
   duration: string;
 }
 
-// Generated outside the component with lazy state initialization below —
-// ensures particle positions are stable across renders and React StrictMode
-// (the react-hooks/purity rule disallows Math.random during render).
+// Particles are generated client-only after mount to avoid hydration
+// mismatches — the server can't predict the same Math.random() values
+// that the client will produce during hydration.
 function buildParticles(): Particle[] {
   return Array.from({ length: 20 }, (_, i) => ({
     id: i,
@@ -54,10 +54,16 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // Lazy state initializers run exactly once per mount — stable positions,
-  // no purity violations.
-  const [particles] = useState<Particle[]>(buildParticles);
-  const [goldParticles] = useState<GoldParticle[]>(buildGoldParticles);
+  // Empty on server + initial client render — populated in useEffect
+  // below (client-only, post-hydration). Keeps server and client trees
+  // identical so React hydration never mismatches.
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [goldParticles, setGoldParticles] = useState<GoldParticle[]>([]);
+
+  useEffect(() => {
+    setParticles(buildParticles());
+    setGoldParticles(buildGoldParticles());
+  }, []);
 
   return (
     <section ref={ref} className="relative h-screen overflow-hidden bg-swrl-black vignette">
@@ -128,21 +134,18 @@ export default function Hero() {
         className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
         style={{ opacity }}
       >
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          <Image
-            src="/images/swrl-logo.jpeg"
-            alt="SWRL Cinnamon Roll Factory"
-            width={600}
-            height={248}
-            className="w-96 md:w-[480px] lg:w-[576px] h-auto rounded-2xl"
-            priority
-          />
-        </motion.div>
+        {/* Logo — renders at final size immediately. The hero's overall
+            motion (Ken Burns background, typewriter tagline, eyebrow fade)
+            carries the entrance. Sized so the dual CTAs below the tagline
+            stay comfortably in view on standard viewports. */}
+        <Image
+          src="/images/swrl-logo.jpeg"
+          alt="SWRL Cinnamon Roll Factory"
+          width={600}
+          height={600}
+          className="w-72 md:w-80 lg:w-96 h-auto rounded-2xl"
+          priority
+        />
 
         {/* Tagline */}
         <div className="mt-8 text-2xl md:text-4xl lg:text-5xl font-display text-swrl-white">

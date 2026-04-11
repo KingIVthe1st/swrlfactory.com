@@ -40,6 +40,11 @@ export default function StickyFranchiseStrip() {
     );
     appearObserver.observe(appearEl);
 
+    // Hide observer: only hides the strip when the franchise section scrolls
+    // into view. Intentionally does NOT re-show the strip on "no longer
+    // intersecting" — the previous version incorrectly fired on mount
+    // (franchise section was below viewport) and showed the strip on the
+    // hero, before the user had even reached Featured Rolls.
     let hideObserver: IntersectionObserver | null = null;
     if (hideEl) {
       hideObserver = new IntersectionObserver(
@@ -47,9 +52,6 @@ export default function StickyFranchiseStrip() {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               setVisible(false);
-            } else if (entry.boundingClientRect.top > 0) {
-              // Hide section is below viewport — strip should show again
-              setVisible(true);
             }
           });
         },

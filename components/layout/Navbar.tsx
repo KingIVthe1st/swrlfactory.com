@@ -38,14 +38,22 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
+        {/* Logo — hidden at the top of the hero (where the big hero logo is
+            the focal point), fades in once the user scrolls away. */}
+        <Link
+          href="/"
+          className={`flex-shrink-0 transition-opacity duration-300 ${
+            scrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+          aria-hidden={!scrolled}
+          tabIndex={scrolled ? 0 : -1}
+        >
           <Image
             src="/images/swrl-logo.jpeg"
             alt="SWRL Cinnamon Roll Factory"
             width={180}
             height={75}
-            className={`h-[60px] w-auto transition-transform duration-300 ${scrolled ? "scale-90" : "scale-100"}`}
+            className="h-[60px] w-auto"
             priority
           />
         </Link>
