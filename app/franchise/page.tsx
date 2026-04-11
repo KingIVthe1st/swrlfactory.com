@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import PageWrapper from "@/components/layout/PageWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -6,15 +7,17 @@ import Button from "@/components/ui/Button";
 import StatCard from "@/components/franchise/StatCard";
 import BenefitGrid from "@/components/franchise/BenefitGrid";
 import FranchiseForm from "@/components/franchise/FranchiseForm";
+import EyebrowLabel from "@/components/ui/EyebrowLabel";
+import BenefitTile from "@/components/ui/BenefitTile";
+import FoundersNote from "@/components/sections/FoundersNote";
 import { FRANCHISE_STATS } from "@/lib/constants";
 
 const IDEAL_OWNER_TRAITS = [
-  "Obsessed with quality",
-  "Community-driven",
-  "Entrepreneurial mindset",
-  "Customer-first attitude",
-  "Loves the brand",
-  "Ready to hustle",
+  "Entrepreneurial operator with multi-unit ambition",
+  "Lives in (or ready to relocate to) the market they want to run",
+  "6-figure liquid capital",
+  "Obsessed with the brand before they heard it was franchisable",
+  "Ready to be in-store daily for the first 12 months",
 ];
 
 export default function FranchisePage() {
@@ -41,16 +44,15 @@ export default function FranchisePage() {
                   Franchise Opportunity
                 </p>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-display text-swrl-white leading-tight mb-6">
-                  Build Your Empire.{" "}
+                  Own the Roll That{" "}
                   <span className="text-swrl-pink">
-                    One Roll at a Time.
+                    Ruined All Others.
                   </span>
                 </h1>
                 <p className="font-body text-swrl-cream/70 text-lg leading-relaxed max-w-lg">
-                  SWRL is more than a cinnamon roll concept — it&apos;s a
-                  movement with a proven product, a passionate following, and a
-                  franchise model built for real operators who want to own
-                  something they&apos;re proud of.
+                  SWRL Factory is now accepting founding-operator applications.
+                  We&apos;re building this carefully — one territory, one
+                  obsessed owner at a time.
                 </p>
               </ScrollReveal>
             </div>
@@ -71,7 +73,36 @@ export default function FranchisePage() {
         </div>
       </section>
 
-      {/* ── 2. Stats ── */}
+      {/* ── 2. Why SWRL ── */}
+      <section className="py-24 md:py-32 bg-swrl-black">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <EyebrowLabel className="mb-4">Why SWRL</EyebrowLabel>
+            <h2 className="font-display text-4xl md:text-6xl text-swrl-white leading-tight">
+              Why this category. Why now.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <BenefitTile
+              number="01"
+              title="A category without a leader."
+              body="Cinnamon rolls has no Starbucks. No Chipotle. No dominant brand. That's the opportunity."
+            />
+            <BenefitTile
+              number="02"
+              title="A product engineered for scale."
+              body="Protected recipes, standardized prep, compact footprint. Teachable in weeks."
+            />
+            <BenefitTile
+              number="03"
+              title="An operator-first model."
+              body="We expect our owners to be in-store daily for the first year. This is not a passive investment."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Stats ── */}
       <section className="py-32 bg-swrl-black">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <ScrollReveal className="text-center mb-16">
@@ -91,7 +122,26 @@ export default function FranchisePage() {
         </div>
       </section>
 
-      {/* ── 3. Benefits ── */}
+      {/* ── 4. What You'll Want to See ── */}
+      <section className="py-24 md:py-32 bg-swrl-black border-t border-swrl-white/5">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <EyebrowLabel className="mb-4">The Real Numbers</EyebrowLabel>
+          <h2 className="font-display text-4xl md:text-5xl text-swrl-white mb-6 leading-tight">
+            What you&apos;ll want to see.
+          </h2>
+          <p className="font-body text-swrl-white/70 text-lg leading-relaxed mb-4">
+            Detailed unit economics are shared after your initial inquiry, in
+            compliance with FDD disclosure requirements. What we can share publicly:
+            low-capex footprint, streamlined operations, protected recipes, and a
+            category with no dominant brand.
+          </p>
+          <p className="font-body text-swrl-white/60 text-base italic">
+            The real numbers come in conversation, not on a webpage.
+          </p>
+        </div>
+      </section>
+
+      {/* ── 5. Benefits ── */}
       <section className="py-32 bg-swrl-black">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <ScrollReveal className="text-center mb-16">
@@ -107,11 +157,9 @@ export default function FranchisePage() {
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <ScrollReveal>
             <h2 className="text-4xl md:text-5xl font-display text-swrl-white mb-6">
-              The Ideal <span className="text-swrl-pink">SWRL Owner</span>
+              Not for everyone.{" "}
+              <span className="text-swrl-pink">Here&apos;s who we&apos;re looking for.</span>
             </h2>
-            <p className="font-body text-swrl-cream/70 text-lg mb-12">
-              You don&apos;t need restaurant experience. You need obsession.
-            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
@@ -129,7 +177,10 @@ export default function FranchisePage() {
         </div>
       </section>
 
-      {/* ── 5. Form ── */}
+      {/* ── Founder's Note ── */}
+      <FoundersNote variant="cream" />
+
+      {/* ── 8. Form ── */}
       <section className="py-32 bg-swrl-cream">
         <div className="max-w-2xl mx-auto px-6 md:px-12">
           <ScrollReveal className="text-center mb-12">
@@ -142,7 +193,9 @@ export default function FranchisePage() {
             </p>
           </ScrollReveal>
 
-          <FranchiseForm />
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <FranchiseForm />
+          </Suspense>
         </div>
       </section>
 
@@ -151,7 +204,7 @@ export default function FranchisePage() {
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <ScrollReveal>
             <p className="font-display text-3xl md:text-4xl text-swrl-white mb-12">
-              The SWRL movement is just getting started.
+              The Charlotte store opened in 2026. The next one could be yours.
             </p>
           </ScrollReveal>
 
