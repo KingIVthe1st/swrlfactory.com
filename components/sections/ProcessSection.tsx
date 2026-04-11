@@ -35,6 +35,15 @@ const steps = [
     gradient: "from-swrl-gold/50 to-swrl-black",
     image: "/images/process-glaze.jpg",
   },
+  {
+    number: "04",
+    title: "Replicate.",
+    subtitle: "A System Built to Scale.",
+    description:
+      "A system so tight, we can hand it to you and watch it work.",
+    gradient: "from-swrl-pink/40 to-swrl-black",
+    image: "/images/storefront.png",
+  },
 ];
 
 export default function ProcessSection() {
@@ -114,10 +123,12 @@ export default function ProcessSection() {
         ))}
       </div>
 
-      {steps.map((step) => (
+      {steps.map((step) => {
+        const isReplicate = step.number === "04";
+        return (
         <section
           key={step.number}
-          className={`process-panel relative h-screen flex items-center justify-center bg-gradient-to-b ${step.gradient}`}
+          className={`process-panel relative h-screen flex items-center justify-center bg-gradient-to-b ${step.gradient}${isReplicate ? " border-t border-swrl-pink/40" : ""}`}
         >
           <Image src={step.image} alt={step.title} fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
@@ -136,7 +147,8 @@ export default function ProcessSection() {
             </p>
           </div>
         </section>
-      ))}
+        );
+      })}
     </div>
   );
 }
